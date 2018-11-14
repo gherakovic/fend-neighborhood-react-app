@@ -7,7 +7,7 @@ const FS_SECRET = 'M341RNPI2TZ24NHRI1PLWZU2AZBQ5UTXRXP1XQYCHI4WDB1J'
 const FS_VERSION = '20181109'
 const G_KEY = 'AIzaSyAN_W_5MzZ1mWS_u4JppTtR49XhNwN7ohE';
 
-class Map extends Component {
+class showMap extends Component {
    state = {
      map: null,
      markers: [],
@@ -15,7 +15,6 @@ class Map extends Component {
      activeMarker: null,
      activeMarkerProps: null,
      showingInfoWindow: false,
-     firstDrop: null,
    }
 
    componentDidMount = () => { }
@@ -185,4 +184,4 @@ class Map extends Component {
  }
 
 };
-export default Map;
+export default showMap;

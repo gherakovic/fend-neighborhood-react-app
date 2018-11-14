@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     lat:  42.327099,
     lon: -83.053262,
-    zoom: 13,
+    zoom: 12,
     all: breweries,
     mapScriptAvailable: true,
     open: false,
@@ -17,12 +17,10 @@ class App extends Component {
 
   styles = {
       menuButton: {
-        marginLeft: 10,
-        marginRight: 20,
         position: "absolute",
         left: 10,
         top: 20,
-        background: "white",
+        background: "#F0F8FF",
         padding: 10
       },
       hide: {
@@ -69,13 +67,14 @@ class App extends Component {
     render = () => {
       return (
         <div className="App">
-          <div style={this.styles.header}>
+          <nav className="header">
             <button onClick={this.toggleDrawer} style={this.styles.menuButton}>
               <i className="fa fa-bars"></i>
             </button>
             <h1>The Best Breweries in Detroit</h1>
-          </div>
+          </nav>
           <Map
+            className="mapContainer"
             lat={this.state.lat}
             lon={this.state.lon}
             zoom={this.state.zoom}
@@ -83,6 +82,7 @@ class App extends Component {
             selectedIndex={this.state.selectedIndex}
             clickListItem={this.clickListItem} />
           <Sidebar
+            className="sidebarMenu"
             locations={this.state.filtered}
             open={this.state.open}
             toggleDrawer={this.toggleDrawer}

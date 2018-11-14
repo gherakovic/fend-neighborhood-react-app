@@ -30,4 +30,3 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 * Eman Neighborhood Map Walkthrough from EMEA Cohort
 * 1:1 Study Session with Udacity Student Ashleigh[FEND]
 * React Apps with the Google Maps API and google-maps-react scotch.io tutorial
-# fend-neighborhood-react-app

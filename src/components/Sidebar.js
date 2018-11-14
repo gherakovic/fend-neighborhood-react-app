@@ -7,7 +7,7 @@ class Sidebar extends Component {
     query: "",
   }
 
-  styles = {
+/*  styles = {
     list: {
         width: "250px",
         padding: "0px 15px 0px"
@@ -33,7 +33,7 @@ class Sidebar extends Component {
         margin: "30px 0px 10px",
         width: "100%"
     }
-};
+};*/
 
 updateQuery = (newQuery) => {
     this.setState({ query: newQuery });
@@ -44,22 +44,20 @@ render = () => {
     return (
         <div>
             <Drawer open={this.props.open} onClose={this.props.toggleMenu}>
-                <div style={this.styles.list}>
+                <div className="sidebarMenu">
                     <input
-                        style={this.styles.filterEntry}
+                        className='filter'
                         type="text"
                         aria-label="Search"
                         placeholder="Search Location"
-                        name="filter"
-                        onChange={e => this
-                            .updateQuery(e.target.value)}
+                        onChange={e => this.updateQuery(e.target.value)}
                         value={this.state.query} />
 
-                    <ul style={this.styles.noBullets}>
+                    <ul className='list'>
                         {this.props.locations && this.props.locations.map((location, index) => {
                                 return (
-                                    <li style={this.styles.listItem} key={index}>
-                                        <button style={this.styles.listLink} key={index} onClick={e => this.props.clickListItem(index)}>{location.name}</button>
+                                    <li className='listing' key={index}>
+                                        <button key={index} onClick={e => this.props.clickListItem(index)}>{location.name}</button>
                                     </li>
                                 )
                             })}
