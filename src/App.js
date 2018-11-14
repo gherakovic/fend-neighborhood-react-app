@@ -71,7 +71,7 @@ class App extends Component {
             <button onClick={this.toggleDrawer} style={this.styles.menuButton}>
               <i className="fa fa-bars"></i>
             </button>
-            <h1>The Best Breweries in Detroit</h1>
+            <h1>The Best Breweries in the Detroit Area</h1>
           </nav>
           <Map
             className="mapContainer"

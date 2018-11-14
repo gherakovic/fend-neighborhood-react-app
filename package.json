@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@material-ui/core": "^3.5.1",
     "google-maps-react": "^2.0.2",
     "react": "^16.6.3",
