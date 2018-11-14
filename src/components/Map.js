@@ -7,7 +7,7 @@ const FS_SECRET = 'M341RNPI2TZ24NHRI1PLWZU2AZBQ5UTXRXP1XQYCHI4WDB1J'
 const FS_VERSION = '20181109'
 const G_KEY = 'AIzaSyAN_W_5MzZ1mWS_u4JppTtR49XhNwN7ohE';
 
-class showMap extends Component {
+class ShowMap extends Component {
    state = {
      map: null,
      markers: [],
@@ -31,10 +31,10 @@ class showMap extends Component {
          return;
        }
 
-    // close window if selected item is not open window
-    if (!props.selectedIndex || (this.state.activeMarker && (this.state.markets[props.selectedIndex] !== this.state.activeMarker))) {
+    //  not neccessary - close window if selected item is not open window
+  /*  if (!props.selectedIndex || (this.state.activeMarker && (this.state.markets[props.selectedIndex] !== this.state.activeMarker))) {
       this.closeInfoWindow();
-     }
+    } */
 
      // check for selectedIndex
      if (props.selectedIndex === null || typeof(props.selectedIndex) === "undefined") {
@@ -149,7 +149,7 @@ class showMap extends Component {
  render = () => {
    const center = {
      lat: this.props.lat,
-     lng: this.props.lng
+     lng: this.props.lon
    }
    let amProps = this.state.activeMarkerProps;
 
@@ -158,6 +158,7 @@ class showMap extends Component {
        role="application"
        aria-label="map"
        onReady={this.mapReady}
+       google={this.props.google}
        zoom={this.props.zoom}
        initialCenter={center}
        onClick={this.closeInfoWindow}>
@@ -184,4 +185,4 @@ class showMap extends Component {
  }
 
 };
-export default showMap;
+export default GoogleApiWrapper({apiKey: G_KEY, LoadingContainer: ErrorMaps})(ShowMap)

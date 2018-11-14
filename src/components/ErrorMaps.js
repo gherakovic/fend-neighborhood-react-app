@@ -1,30 +1,38 @@
 import React, {Component} from 'react';
 
 class ErrorMaps extends Component {
-  constructor(props) {
-		super(props)
-			this.state = {
-			error: false
-		}
+    state = {
+        show: false,
+        timeout: null
+    }
 
-	}
+    componentDidMount = () => {
+        let timeout = window.setTimeout(this.showMessage, 1000);
+        this.setState({timeout});
+    }
 
-componentDidCatch(error, info) {
-    console.log(error, info)
-    this.setState({ error: true })
-	}
+    componentWillUnmount = () => {
+        window.clearTimeout(this.state.timeout);
+    }
 
-	render() {
+    showMessage = () => {
+        this.setState({show: true});
+    }
 
-		if(this.state.error === true) {
-			return (
-				<div>
-					<h1>Uh oh! The map did not load.</h1>
-					<p>Please try again later when you are online.</p>
-				</div>
-				)
-			}
-			return this.props.children
-		}
+    render = () => {
+        return (
+           <div>
+                {this.state.show
+                    ? (
+                        <div>
+                            <h1>Uh oh! There was an error while loading the map</h1>
+                            < p >
+                               This is probably due to a network error. Please try  again when you are online.</p>
+                        </div>
+                    )
+                    : (<div><h1>Loading</h1></div>)
+            } </div>
+        )
+    }
 }
-export default ErrorMaps
+export default ErrorMaps;
