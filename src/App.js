@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 import './App.css';
 import breweries from './data/breweries.json';
 import Map from './components/Map.js';
@@ -94,6 +93,4 @@ class App extends Component {
     }
   }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAN_W_5MzZ1mWS_u4JppTtR49XhNwN7ohE'
-})(MapContainer);
+export default App;
